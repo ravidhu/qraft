@@ -16,6 +16,7 @@ Thumbs.db
 # Rust
 **/target/
 **/*.so
+*.dSYM/
 
 # Python
 __pycache__/

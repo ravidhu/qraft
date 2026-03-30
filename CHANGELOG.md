@@ -4,7 +4,7 @@ All notable changes to Qraft are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.1.0] - 2026-03-30
 
 ### Added
 
@@ -123,12 +123,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Example projects: `ecommerce_basic`, `saas_analytics`
 - `blog_analytics` and `datalakehouse_trino` examples
 - Docker Compose files for example database setups
+- `scripts/benchmark.py` — compilation pipeline benchmark across example projects and synthetic scale tests
 
 #### Documentation
 - Architecture overview, CLI reference, configuration guide
 - Code reuse and macro authoring guide
 - Contributing guide with engine extension instructions
 - Feature comparison against dbt Core
+- Compilation benchmarks (`docs/benchmarks.md`) with real-world and scale test results
 
 ### Changed
 - Renamed cryptic variables across Python and Rust codebase for junior-engineer readability: `e`→`error`, `r`→`test_result`/`model_result`, `m`→`model`, `pm`→`parsed_model`, `fm`→`front_matter_content`, `mat`→`materialization`, `src`→`source_config`, `vars_`→`current_variables`, `fn`→`macro_function`, `c`→`compiled_model`, `n`→`node`, and more (20 findings across 22 files)
