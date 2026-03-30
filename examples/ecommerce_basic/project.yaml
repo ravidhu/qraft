@@ -1,0 +1,33 @@
+name: ecommerce_basic
+
+connection:
+  type: trino
+  host: localhost
+  port: "8080"
+  user: qraft
+  catalog: warehouse
+
+schema: analytics
+materialization: view
+
+sources:
+  raw:
+    database: source_mysql
+    schema: raw
+    tables:
+      - customers
+      - orders
+      - order_items
+      - products
+
+vars:
+  min_order_amount: "0"
+  gold_threshold: "200"
+  silver_threshold: "100"
+
+environments:
+  docker:
+  prod:
+    schema: analytics_prod
+    vars:
+      min_order_amount: "10"

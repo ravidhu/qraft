@@ -1,0 +1,19 @@
+include:
+  - path: ../datalakehouse_trino/docker-compose.base.yml
+
+services:
+  mysql:
+    image: mariadb:11.7
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: raw
+      MARIADB_USER: qraft
+      MARIADB_PASSWORD: qraft
+    volumes:
+      - ./docker:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      retries: 10

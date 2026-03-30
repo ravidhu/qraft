@@ -1,0 +1,92 @@
+name: Bug Report
+description: Report a bug in Qraft
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill out the sections below to help us reproduce and fix the issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: Qraft Version
+      description: Run `qraft --version` to find this.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: database
+    attributes:
+      label: Database Engine
+      description: Which database engine are you using?
+      options:
+        - DuckDB
+        - PostgreSQL
+        - MySQL
+        - Trino
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Linux
+        - Windows
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear description of the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Minimal steps to reproduce the behavior.
+      value: |
+        1. Create a model with...
+        2. Run `qraft ...`
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened. Include error messages and stack traces if applicable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sql
+    attributes:
+      label: Relevant SQL / Configuration
+      description: Include any relevant SQL models or `project.yaml` configuration.
+      render: sql
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other context (Python version, Rust toolchain version, etc.).

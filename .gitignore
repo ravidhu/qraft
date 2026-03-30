@@ -1,0 +1,36 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.venv/
+
+# IDE
+.idea/
+.vscode/
+.claude/
+*.swp
+*.swo
+
+# Rust
+**/target/
+**/*.so
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+dist/
+
+# DuckDB
+*.duckdb
+*.duckdb.wal
+
+# Catalog app
+catalog_app/node_modules/
+catalog_app/dist/
+
+# Misc
+tmp

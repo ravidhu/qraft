@@ -1,0 +1,51 @@
+name: saas_analytics
+
+connection:
+  type: trino
+  host: localhost
+  port: "8080"
+  user: qraft
+  catalog: warehouse
+
+schema: analytics
+materialization: view
+
+# Three distinct data sources: CRM, billing platform, product telemetry
+sources:
+  crm:
+    database: source_pg
+    schema: crm_raw
+    tables:
+      - accounts
+      - contacts
+      - opportunities
+  billing:
+    database: source_pg
+    schema: billing_raw
+    tables:
+      - subscriptions
+      - invoices
+      - payments
+  product:
+    database: source_pg
+    schema: product_raw
+    tables:
+      - users
+      - events
+      - feature_usage
+
+vars:
+  trial_days: "14"
+  churn_inactive_days: "30"
+  mrr_currency: "USD"
+  healthy_mrr_threshold: "10000"
+  at_risk_event_threshold: "5"
+
+environments:
+  docker:
+  staging:
+    schema: analytics_staging
+  prod:
+    schema: analytics_prod
+    vars:
+      churn_inactive_days: "60"

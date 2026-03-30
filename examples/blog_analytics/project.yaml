@@ -1,0 +1,30 @@
+name: blog_analytics
+
+connection:
+  type: trino
+  host: localhost
+  port: "8080"
+  user: qraft
+  catalog: warehouse
+
+schema: blog_analytics
+materialization: view
+
+sources:
+  blog:
+    database: source_pg
+    schema: blog_raw
+    tables:
+      - authors
+      - posts
+      - comments
+
+vars:
+  min_post_length: "0"
+
+environments:
+  docker:
+  prod:
+    schema: blog_analytics_prod
+    vars:
+      min_post_length: "100"

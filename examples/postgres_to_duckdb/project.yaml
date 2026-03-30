@@ -1,0 +1,24 @@
+name: postgres_to_duckdb
+
+connection:
+  type: duckdb
+  path: analytics.duckdb
+  init_sql: "INSTALL postgres; LOAD postgres; ATTACH 'postgresql://qraft:qraft@localhost:5432/source' AS pg (TYPE POSTGRES, READ_ONLY)"
+
+schema: main
+materialization: view
+
+sources:
+  app:
+    database: pg
+    schema: app_public
+    tables:
+      - users
+      - orders
+      - products
+
+vars:
+  active_days: "90"
+
+environments:
+  local:

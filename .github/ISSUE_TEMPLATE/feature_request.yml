@@ -1,0 +1,60 @@
+name: Feature Request
+description: Suggest a new feature or improvement for Qraft
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please describe what you'd like and why it would be useful.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of Qraft does this relate to?
+      options:
+        - SQL Templating (ref, source, variables)
+        - Materializations (view, table, incremental)
+        - CLI Commands
+        - Configuration (project.yaml)
+        - DAG / Model Selection
+        - Database Engines
+        - Macros
+        - Performance
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: What problem does this feature solve? What workflow is currently painful?
+      placeholder: "I find it frustrating when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this to work? Include example SQL, CLI commands, or config if applicable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions or workarounds you've considered.
+
+  - type: dropdown
+    id: willing
+    attributes:
+      label: Would you be willing to contribute this?
+      options:
+        - "Yes, I'd like to submit a PR"
+        - "I could help with guidance"
+        - "No, but I'd like to see it built"
