@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+#### Catalog Documentation
+- Dedicated catalog documentation (`docs/catalog.md`) covering generation, serving, UI features, manifest contents, and architecture
+
 #### .env.example Improvements
 - Updated `.env.example` template with standard database connection variables (`DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`)
 - Applied to root, example projects, and `qraft init` scaffold

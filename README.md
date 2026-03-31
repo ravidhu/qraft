@@ -45,6 +45,10 @@ qraft compile --env local
 
 # Run models against your database
 qraft run --env local
+
+# Browse your project in an interactive catalog
+qraft docs generate --env local
+qraft docs serve
 ```
 
 ## Project Structure
@@ -207,6 +211,7 @@ Qraft compiles your SQL models through a Rust-powered pipeline: parse all SQL fi
 - [Code Reuse](docs/code_reuse.md) -- Macro system, qraft-utils, adapter support matrix
 - [Materialization Types](docs/materialization_types.md) -- view, table, table_incremental, ephemeral, materialized_view
 - [Testing](docs/testing.md) -- Built-in data testing framework
+- [Catalog](docs/catalog.md) -- Interactive project documentation and lineage viewer
 - [CLI Reference](docs/cli_reference.md) -- All commands and options
 - [Why Qraft?](docs/why_qraft.md) -- Design philosophy and trade-offs
 - [Migrating from dbt](docs/migrating_from_dbt.md) -- Side-by-side migration guide
